@@ -51,7 +51,7 @@ const StyledNav = styled.nav`
     margin: 0;
     &:hover {
       background: ${({ theme }) => theme.colors.primary};
-      color: #ffffff;
+      color: #000000;
     }
   }
 `

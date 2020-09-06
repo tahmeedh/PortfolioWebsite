@@ -11,8 +11,7 @@ const { footerLinks } = Config
 const StyledFooter = styled.footer`
   width: 100%;
   height: ${({ theme }) => theme.footerHeight};
-  background: ${({ theme }) => theme.colors.primary};
-  margin-top: 10rem;
+  background: ${({ theme }) => theme.colors.background};
 `
 
 const StyledContentWrapper = styled(ContentWrapper)`

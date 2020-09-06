@@ -13,7 +13,10 @@ const StyledSection = styled.section`
   width: 100%;
   height: auto;
   background: ${({ theme }) => theme.colors.background};
-  margin-top: 6rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+
 `
 
 const StyledContentWrapper = styled(ContentWrapper)`
@@ -51,7 +54,7 @@ const StyledInterests = styled.div`
   grid-auto-flow: column;
   column-gap: 1rem;
   row-gap: 1rem;
-  padding: 0 2.5rem;
+  padding: 2.5rem;
   overflow-x: scroll;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
@@ -167,7 +170,10 @@ const Interests = ({ content }) => {
                 onClick={() => showMoreItems()}
                 type="button"
                 textAlign="left"
-                color="primary"
+                color="s"
+            
+
+                
               >
                 + Load more
               </Button>

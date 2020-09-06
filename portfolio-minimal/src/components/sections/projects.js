@@ -16,7 +16,7 @@ const StyledSection = styled.section`
   width: 100%;
   height: auto;
   background: ${({ theme }) => theme.colors.background};
-  margin-top: 6rem;
+  
   .cta-btn {
     display: block;
     text-align: center;
@@ -84,7 +84,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
         }
 
         &::-webkit-scrollbar-track {
-          background-color: #fff;
+          background-color: #000;
           border-radius: 8px;
         }
       }
@@ -175,7 +175,7 @@ const StyledProject = styled(motion.div)`
         transition: all 0.3s ease-out;
       }
       svg:hover {
-        fill: ${({ theme }) => theme.colors.primary};
+        fill: ${({ theme }) => theme.colors.secondary};
       }
     }
   }
@@ -220,18 +220,18 @@ const Projects = ({ content }) => {
     visible: { opacity: 1, y: 0 },
   }
 
-  useEffect(() => {
-    // mobile and tablet only: set first project as visible in the
-    // horizontal slider
-    setVisibleProject(1)
-    // required for animations: set visibility for all projects to
-    // "false" initially
-    let initial = {}
-    projects.forEach(project => {
-      initial[project.node.frontmatter.position] = false
-    })
-    setOnScreen(initial)
-  }, [])
+  // useEffect(() => {
+  //   // mobile and tablet only: set first project as visible in the
+  //   // horizontal slider
+  //   setVisibleProject(1)
+  //   // required for animations: set visibility for all projects to
+  //   // "false" initially
+  //   let initial = {}
+  //   projects.forEach(project => {
+  //     initial[project.node.frontmatter.position] = false
+  //   })
+  //   setOnScreen(initial)
+  // }, [])
 
   // Required for animating the title
   const tRef = useRef()
@@ -289,8 +289,8 @@ const Projects = ({ content }) => {
                       {frontmatter.tags.map(tag => (
                         <Underlining
                           key={tag}
-                          color="secondary"
-                          hoverColor="secondary"
+                          color="background"
+                          hoverColor="background"
                         >
                           {tag}
                         </Underlining>
@@ -345,7 +345,7 @@ const Projects = ({ content }) => {
         rel="nofollow noopener noreferrer"
         aria-label="External Link"
       >
-        <Button type="button" textAlign="center" color="primary" center>
+        <Button type="button" textAlign="center" color="tertiary" center>
           {sectionDetails.frontmatter.buttonText}
         </Button>
       </motion.a>

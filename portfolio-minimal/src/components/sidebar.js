@@ -53,7 +53,7 @@ const StyledNav = styled.nav`
   right: 0;
   margin-left: auto;
   a {
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.secondary};
   }
   .nav-link {
     font-size: 1.5rem;

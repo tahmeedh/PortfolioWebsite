@@ -16,6 +16,7 @@ const StyledSection = styled.section`
   width: 100%;
   height: auto;
   background: ${({ theme }) => theme.colors.background};
+  margin-bottom: 1rem;
 `
 
 const StyledContentWrapper = styled(ContentWrapper)`
@@ -26,9 +27,8 @@ const StyledContentWrapper = styled(ContentWrapper)`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 6rem;
+    
     @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
-      margin-bottom: 4rem;
     }
     .greetings {
       display: flex;

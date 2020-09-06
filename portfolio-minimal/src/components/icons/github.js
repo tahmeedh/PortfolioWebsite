@@ -30,7 +30,7 @@ Github.propTypes = {
 }
 
 Github.defaultProps = {
-  color: "#000000",
+  color: "#ffffff",
 }
 
 export default Github
