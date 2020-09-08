@@ -17,6 +17,11 @@ const StyledSection = styled.section`
   height: auto;
   background: ${({ theme }) => theme.colors.background};
   margin-bottom: 1rem;
+  .resume {
+    position: absolute;
+    right: 100px;
+    top: 150px;
+  }
 `
 
 const StyledContentWrapper = styled(ContentWrapper)`
@@ -129,6 +134,9 @@ const Hero = ({ content }) => {
           <Social fontSize=".95rem" padding=".3rem 1.25rem" width="auto" />
         </motion.div>
       </StyledContentWrapper>
+      <div className="resume">
+        <p>Best</p>
+      </div>
     </StyledSection>
   )
 }
