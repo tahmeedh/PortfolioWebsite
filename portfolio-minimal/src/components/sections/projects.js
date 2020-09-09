@@ -137,15 +137,15 @@ const StyledProject = styled(motion.div)`
       margin-top: 0;
     }
     .category {
-      font-size: 0.875rem;
-      line-height: 1rem;
+      font-size: 0.9rem;
+      line-height: 1.5rem;
       text-transform: uppercase;
       letter-spacing: +1px;
     }
     .title {
       margin-top: 0.625rem;
       margin-bottom: 0.625rem;
-      font-size: 1.375rem;
+      font-size: 2rem;
       line-height: 1.625rem;
       font-weight: 700;
     }
@@ -181,7 +181,7 @@ const StyledProject = styled(motion.div)`
   }
   .screenshot {
     width: 100%;
-    max-width: 25rem;
+    max-width: 30rem;
     height: 15rem;
     border-radius: ${({ theme }) => theme.borderRadius};
     box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.16);
@@ -290,7 +290,7 @@ const Projects = ({ content }) => {
                         <Underlining
                           key={tag}
                           color="background"
-                          hoverColor="background"
+                          hoverColor="secondary"
                         >
                           {tag}
                         </Underlining>

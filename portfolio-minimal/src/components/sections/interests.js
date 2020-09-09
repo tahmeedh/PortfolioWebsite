@@ -15,7 +15,7 @@ const StyledSection = styled.section`
   background: ${({ theme }) => theme.colors.background};
   margin-top: 1rem;
   margin-bottom: 1rem;
-  padding: 1rem;
+  padding: 5rem;
 
 `
 
