@@ -24,7 +24,7 @@ module.exports = {
         },
         {
             name: "Medium",
-            url: "https://medium.com/@konstantin.muenster"
+            url: "https://medium.com/@tahmeedhossain"
         },
         {
             name: "Github",
@@ -43,7 +43,7 @@ module.exports = {
                 url: "/#about",
             },
             {
-                name: "Features",
+                name: "Projects",
                 url: "/#projects",
             },
         ],

@@ -1,10 +1,12 @@
-import React, { useEffect, useContext } from "react"
+import React, { useEffect, useContext, useRef } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { motion, useAnimation } from "framer-motion"
 
+import { useOnScreen } from "../../hooks"
+import Button from "../../styles/Button"
 import Context from "../../context/"
 import ContentWrapper from "../../styles/ContentWrapper"
 import Underlining from "../../styles/Underlining"
@@ -18,6 +20,12 @@ const StyledSection = styled.section`
   background: ${({ theme }) => theme.colors.background};
   margin-bottom: 1rem;
   .resume {
+    position: absolute;
+    right: 120px;
+    top: 490px;
+    
+  }
+  .kobe {
     position: absolute;
     right: 100px;
     top: 150px;
@@ -104,6 +112,13 @@ const Hero = ({ content }) => {
     }
     pageLoadSequence()
   }, [isIntroDone, eControls, gControls, sControls, uControls])
+  const bRef = useRef()
+  const bOnScreen = useOnScreen(bRef)
+  const bVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  }
+  
   
   return (
     <StyledSection id="hero">
@@ -133,10 +148,24 @@ const Hero = ({ content }) => {
         <motion.div initial={{ opacity: 0, x: 20 }} animate={sControls}>
           <Social fontSize=".95rem" padding=".3rem 1.25rem" width="auto" />
         </motion.div>
+        
       </StyledContentWrapper>
-      <div className="resume">
-        <p>Best</p>
-      </div>
+      {(
+        <motion.a
+        ref={bRef}
+        variants={bVariants}
+        animate={bOnScreen ? "visible" : "hidden"}
+        className="resume"
+        href={"https://www.linkedin.com/in/tahmeed-hossain-aaab121b3/detail/overlay-view/urn:li:fsd_profileTreasuryMedia:(ACoAADHSGKIBQSBKdM9hg6ZsHa7_RY-9oW3WC_c,1599199712343)/"}
+        target="_blank"
+        rel="nofollow noopener noreferrer"
+        aria-label="External Link"
+      >
+        <Button type="button" textAlign="center" color="tertiary" center>
+          Open Resume
+        </Button>
+      </motion.a>
+      )}
     </StyledSection>
   )
 }
