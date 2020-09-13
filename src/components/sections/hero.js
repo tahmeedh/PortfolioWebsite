@@ -4,7 +4,7 @@ import styled from "styled-components"
 import Img from "gatsby-image"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { motion, useAnimation } from "framer-motion"
-
+import Pdf from "./Resume.pdf"
 import { useOnScreen } from "../../hooks"
 import Button from "../../styles/Button"
 import Context from "../../context/"
@@ -150,7 +150,7 @@ const Hero = ({ content }) => {
         variants={bVariants}
         animate={bOnScreen ? "visible" : "hidden"}
         className="resume"
-        href={"https://www.linkedin.com/in/tahmeed-hossain-aaab121b3/detail/overlay-view/urn:li:fsd_profileTreasuryMedia:(ACoAADHSGKIBQSBKdM9hg6ZsHa7_RY-9oW3WC_c,1599199712343)/"}
+        href={Pdf}
         target="_blank"
         rel="nofollow noopener noreferrer"
         aria-label="External Link"

@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-
+import Pdf from "./tahmeed.pdf"
 import ContentWrapper from "../styles/ContentWrapper"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -41,10 +41,13 @@ const Privacy = ({ data }) => {
   const { body, frontmatter } = data.privacy.edges[0].node
   return (
     <Layout splashScreen={false}>
-      <SEO title="Privacy Policy - Portfolio Minimal" meta={[{ name: 'robots', content: 'noindex'}]} />
+      <SEO title="Tahmeed Hossain - Portfolio Minimal" meta={[{ name: 'robots', content: 'noindex'}]} />
       <StyledSection id={frontmatter.title}>
         <StyledContentWrapper>
           <h1>{frontmatter.title}</h1>
+          <div className = "App">
+        <a href = {Pdf} target = "_blank">Download Pdf</a>
+      </div>
           <MDXRenderer>{body}</MDXRenderer>
         </StyledContentWrapper>
       </StyledSection>
