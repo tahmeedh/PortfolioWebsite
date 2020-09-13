@@ -21,7 +21,7 @@ const StyledSection = styled.section`
   margin-bottom: 1rem;
   .resume {
     position: absolute;
-    right: 120px;
+    right: 390px;
     top: 490px;
     
   }

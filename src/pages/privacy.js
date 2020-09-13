@@ -41,7 +41,7 @@ const Privacy = ({ data }) => {
   const { body, frontmatter } = data.privacy.edges[0].node
   return (
     <Layout splashScreen={false}>
-      <SEO title="Tahmeed Hossain - Portfolio Minimal" meta={[{ name: 'robots', content: 'noindex'}]} />
+      <SEO title="Tahmeed Hossain - Portfolio" meta={[{ name: 'robots', content: 'noindex'}]} />
       <StyledSection id={frontmatter.title}>
         <StyledContentWrapper>
           <h1>{frontmatter.title}</h1>
