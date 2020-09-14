@@ -20,9 +20,8 @@ const StyledSection = styled.section`
   background: ${({ theme }) => theme.colors.background};
   margin-bottom: 1rem;
   .resume {
-    position: absolute;
-    right: 390px;
-    top: 490px;
+    display: flex;
+    margin-bottom: 10 rem;
     
   }
 `
