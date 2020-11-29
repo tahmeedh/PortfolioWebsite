@@ -1,20 +1,20 @@
 var plugins = [{
-      plugin: require('/Users/tahmeedh/Documents/VsCode/PortfolioWebsite/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
+      plugin: require('/Users/tahmeed/Documents/GitHub/PortfolioWebsite/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
       options: {"plugins":[]},
     },{
-      plugin: require('/Users/tahmeedh/Documents/VsCode/PortfolioWebsite/node_modules/gatsby-plugin-sitemap/gatsby-ssr'),
+      plugin: require('/Users/tahmeed/Documents/GitHub/PortfolioWebsite/node_modules/gatsby-plugin-sitemap/gatsby-ssr'),
       options: {"plugins":[]},
     },{
-      plugin: require('/Users/tahmeedh/Documents/VsCode/PortfolioWebsite/node_modules/gatsby-plugin-styled-components/gatsby-ssr'),
+      plugin: require('/Users/tahmeed/Documents/GitHub/PortfolioWebsite/node_modules/gatsby-plugin-styled-components/gatsby-ssr'),
       options: {"plugins":[]},
     },{
-      plugin: require('/Users/tahmeedh/Documents/VsCode/PortfolioWebsite/node_modules/gatsby-plugin-offline/gatsby-ssr'),
+      plugin: require('/Users/tahmeed/Documents/GitHub/PortfolioWebsite/node_modules/gatsby-plugin-offline/gatsby-ssr'),
       options: {"plugins":[]},
     },{
-      plugin: require('/Users/tahmeedh/Documents/VsCode/PortfolioWebsite/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
+      plugin: require('/Users/tahmeed/Documents/GitHub/PortfolioWebsite/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
       options: {"plugins":[],"name":"Gatsby Starter Portfolio Minimal","short_name":"Tahmeed Hossain","start_url":"/","background_color":"#14213d","theme_color":"#ffffff","display":"minimal-ui","icon":"src/content/favicon.png"},
     },{
-      plugin: require('/Users/tahmeedh/Documents/VsCode/PortfolioWebsite/node_modules/gatsby-plugin-mdx/gatsby-ssr'),
+      plugin: require('/Users/tahmeed/Documents/GitHub/PortfolioWebsite/node_modules/gatsby-plugin-mdx/gatsby-ssr'),
       options: {"plugins":[],"extensions":[".mdx",".md"],"gatsbyRemarkPlugins":[{"resolve":"gatsby-remark-images","options":{"maxWidth":1000,"quality":80}}]},
     }]
 // During bootstrap, we write requires at top of this file which looks like:
