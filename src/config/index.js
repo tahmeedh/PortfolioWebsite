@@ -1,7 +1,7 @@
 module.exports = {
 
     author: "@konstantinmuenster",
-    siteTitle: "Gatsby Starter Portfolio Minimal",
+    siteTitle: "Tahmeed Hossain Portfolio",
     siteShortTitle: "Tahmeed Hossain", // Used as logo text in header, footer, and splash screen
     siteDescription: "Software Engineer with Web Development Experience in Surrey, British Columbia ",
     siteUrl: "https://gatsby-starter-portfolio-minimal.netlify.app/",
