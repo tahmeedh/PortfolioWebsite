@@ -9,6 +9,7 @@ import { useOnScreen } from "../../hooks"
 import ContentWrapper from "../../styles/ContentWrapper"
 import Underlining from "../../styles/Underlining"
 import Social from "../social"
+import tahmeeedGIF from "../../content/contact/Tahmeed.gif"
 
 const StyledSection = styled(motion.section)`
   width: 100%;
@@ -76,7 +77,7 @@ const Contact = ({ content }) => {
         <h3>{frontmatter.title}</h3>
         <MDXRenderer>{body}</MDXRenderer>
         <div className="profile">
-          <Img className="avatar" fluid={frontmatter.profileImage.childImageSharp.fluid} />
+        <img className="avatar" src={tahmeeedGIF} alt="Otter dancing with a fish" />
           <div className="details">
             <strong>{frontmatter.name}</strong>
             <br />
