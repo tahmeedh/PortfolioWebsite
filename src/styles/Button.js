@@ -9,6 +9,7 @@ const StyledButton = styled.button`
   color: #ffffff;
   padding: 1rem;
   margin: 0 ${({ center }) => center ? "auto" : "0"};
+  margin-bottom: 20px;
   font-size: 0.875rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -21,6 +22,7 @@ const StyledButton = styled.button`
   &:active {
     cursor: pointer;
     outline: none;
+    background-color: #c41e3d;
   }
   svg {
     height: 1rem;

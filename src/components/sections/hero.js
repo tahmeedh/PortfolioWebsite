@@ -154,7 +154,7 @@ const Hero = ({ content }) => {
         rel="nofollow noopener noreferrer"
         aria-label="External Link"
       >
-        <Button type="button" textAlign="center" color="tertiary" center>
+        <Button type="button" textAlign="center" color="tertiary" margin="50px" center>
           Open Resume
         </Button>
       </motion.a>
