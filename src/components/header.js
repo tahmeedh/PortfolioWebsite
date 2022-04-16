@@ -1,21 +1,21 @@
-import React, { useState, useEffect, useContext } from "react"
-import { Link } from "gatsby"
-import Helmet from "react-helmet"
-import styled from "styled-components"
-import { motion, useAnimation } from "framer-motion"
+import React, { useState, useEffect, useContext } from "react";
+import { Link } from "gatsby";
+import Helmet from "react-helmet";
+import styled from "styled-components";
+import { motion, useAnimation } from "framer-motion";
 
-import Context from "../context"
-import { detectMobileAndTablet, isSSR } from "../utils/"
-import ContentWrapper from "../styles/ContentWrapper"
-import Logo from "./logo"
-import Sidebar from "./sidebar"
-import Navbar from "./navbar"
+import Context from "../context";
+import { detectMobileAndTablet, isSSR } from "../utils/";
+import ContentWrapper from "../styles/ContentWrapper";
+import Logo from "./logo";
+import Sidebar from "./sidebar";
+import Navbar from "./navbar";
 
 const StyledHeader = motion.custom(styled.header`
   width: 100%;
   height: ${({ theme }) => theme.headerHeight};
   background: ${({ theme }) => theme.colors.background};
-`)
+`);
 
 const StyledContentWrapper = styled(ContentWrapper)`
   && {
@@ -25,7 +25,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
     justify-content: space-between;
     align-items: center;
   }
-`
+`;
 
 // https://css-tricks.com/hamburger-menu-with-a-side-of-react-hooks-and-styled-components/
 const StyledBurger = styled.button`
@@ -70,35 +70,34 @@ const StyledBurger = styled.button`
       transform: ${({ open }) => (open ? "rotate(-45deg)" : "rotate(0)")};
     }
   }
-`
+`;
 
 const Header = () => {
-  const { isIntroDone } = useContext(Context).state
-  const [open, setOpen] = useState(false)
-  const [windowWidth, setWindowWidth] = useState(0)
+  const { isIntroDone } = useContext(Context).state;
+  const [open, setOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(0);
 
-  
   useEffect(() => {
-    let handleWindowSizeChange
+    let handleWindowSizeChange;
     // if (isSSR) is necessary to prevent error during the gatsby build
     if (!isSSR) {
-      handleWindowSizeChange = () => setWindowWidth(window.innerWidth)
+      handleWindowSizeChange = () => setWindowWidth(window.innerWidth);
       // set initial innerWidth when component mounts
-      setWindowWidth(window.innerWidth)
+      setWindowWidth(window.innerWidth);
     }
     // Add event listener to update windowWidth in state
-    window.addEventListener("resize", handleWindowSizeChange)
-    return () => window.removeEventListener("resize", handleWindowSizeChange)
-  }, [windowWidth])
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => window.removeEventListener("resize", handleWindowSizeChange);
+  }, [windowWidth]);
 
   // Required for animation - start after the splashScreen sequence is done
-  const controls = useAnimation()
+  const controls = useAnimation();
   useEffect(() => {
-    if (isIntroDone) controls.start({ opacity: 1, y: 0, transition: { delay: 0.2 } })
-  }, [isIntroDone, controls])
-  
+    if (isIntroDone)
+      controls.start({ opacity: 1, y: 0, transition: { delay: 0.2 } });
+  }, [isIntroDone, controls]);
 
-  let navigation
+  let navigation;
   if (detectMobileAndTablet(windowWidth)) {
     navigation = (
       <>
@@ -113,9 +112,9 @@ const Header = () => {
         </StyledBurger>
         <Sidebar id="sidebar" open={open} setOpen={setOpen} />
       </>
-    )
+    );
   } else {
-    navigation = <Navbar />
+    navigation = <Navbar />;
   }
 
   return (
@@ -129,7 +128,7 @@ const Header = () => {
         {navigation}
       </StyledContentWrapper>
     </StyledHeader>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

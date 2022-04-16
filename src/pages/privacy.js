@@ -1,12 +1,12 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { graphql } from "gatsby"
-import styled from "styled-components"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import Pdf from "./tahmeed.pdf"
-import ContentWrapper from "../styles/ContentWrapper"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql } from "gatsby";
+import styled from "styled-components";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import Pdf from "./tahmeed.pdf";
+import ContentWrapper from "../styles/ContentWrapper";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const StyledSection = styled.section`
   width: 100%;
@@ -16,16 +16,16 @@ const StyledSection = styled.section`
   height: auto;
   background: ${({ theme }) => theme.colors.background};
   h1 {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
   h2 {
-      font-size: 1.25rem;
+    font-size: 1.25rem;
   }
   h3 {
-      font-size: 1rem;
-      margin-bottom: 1rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
-`
+`;
 
 const StyledContentWrapper = styled(ContentWrapper)`
   && {
@@ -35,25 +35,30 @@ const StyledContentWrapper = styled(ContentWrapper)`
     padding: 0;
     height: 100%;
   }
-`
+`;
 
 const Privacy = ({ data }) => {
-  const { body, frontmatter } = data.privacy.edges[0].node
+  const { body, frontmatter } = data.privacy.edges[0].node;
   return (
     <Layout splashScreen={false}>
-      <SEO title="Tahmeed Hossain - Portfolio" meta={[{ name: 'robots', content: 'noindex'}]} />
+      <SEO
+        title="Tahmeed Hossain - Portfolio"
+        meta={[{ name: "robots", content: "noindex" }]}
+      />
       <StyledSection id={frontmatter.title}>
         <StyledContentWrapper>
           <h1>{frontmatter.title}</h1>
-          <div className = "App">
-        <a href = {Pdf} target = "_blank">Download Pdf</a>
-      </div>
+          <div className="App">
+            <a href={Pdf} target="_blank">
+              Download Pdf
+            </a>
+          </div>
           <MDXRenderer>{body}</MDXRenderer>
         </StyledContentWrapper>
       </StyledSection>
     </Layout>
-  )
-}
+  );
+};
 
 Privacy.propTypes = {
   data: PropTypes.shape({
@@ -62,15 +67,15 @@ Privacy.propTypes = {
         PropTypes.shape({
           node: PropTypes.shape({
             body: PropTypes.string.isRequired,
-            frontmatter: PropTypes.object.isRequired,
-          }).isRequired,
+            frontmatter: PropTypes.object.isRequired
+          }).isRequired
         }).isRequired
-      ).isRequired,
-    }).isRequired,
-  }).isRequired,
-}
+      ).isRequired
+    }).isRequired
+  }).isRequired
+};
 
-export default Privacy
+export default Privacy;
 
 export const pageQuery = graphql`
   {
@@ -85,4 +90,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

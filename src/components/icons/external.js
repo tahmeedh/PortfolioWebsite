@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
+import PropTypes from "prop-types";
 
 const External = ({ color }) => {
   return (
@@ -26,15 +26,15 @@ const External = ({ color }) => {
         />
       </g>
     </svg>
-  )
-}
+  );
+};
 
 External.propTypes = {
-  color: PropTypes.string,
-}
+  color: PropTypes.string
+};
 
 External.defaultProps = {
-  color: "#000000",
-}
+  color: "#000000"
+};
 
-export default External
+export default External;

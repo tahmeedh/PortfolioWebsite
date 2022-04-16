@@ -1,12 +1,12 @@
-const config = require('./src/config');
-const theme = require('./src/styles/Theme')
+const config = require("./src/config");
+const theme = require("./src/styles/Theme");
 // test push
 module.exports = {
   siteMetadata: {
     title: config.siteTitle,
     description: config.siteDescription,
     author: config.author,
-    siteUrl: config.siteUrl,
+    siteUrl: config.siteUrl
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -34,8 +34,8 @@ module.exports = {
         background_color: theme.colors.background,
         theme_color: theme.colors.primary,
         display: `minimal-ui`,
-        icon: config.siteIcon, // This path is relative to the root of the site.
-      },
+        icon: config.siteIcon // This path is relative to the root of the site.
+      }
     },
     {
       resolve: `gatsby-plugin-mdx`,
@@ -46,18 +46,18 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1000,
-              quality: 80,
-            },
-          },
-        ],
-      },
+              quality: 80
+            }
+          }
+        ]
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/content`,
-        name: `content`,
-      },
-    },
-  ],
-}
+        name: `content`
+      }
+    }
+  ]
+};

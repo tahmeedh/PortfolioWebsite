@@ -1,18 +1,18 @@
-import React from "react"
-import { Link } from "gatsby"
-import styled from "styled-components"
+import React from "react";
+import { Link } from "gatsby";
+import styled from "styled-components";
 
-import Config from "../config/"
-import ContentWrapper from "../styles/ContentWrapper"
-import Logo from "./logo"
+import Config from "../config/";
+import ContentWrapper from "../styles/ContentWrapper";
+import Logo from "./logo";
 
-const { footerLinks } = Config
+const { footerLinks } = Config;
 
 const StyledFooter = styled.footer`
   width: 100%;
   height: ${({ theme }) => theme.footerHeight};
   background: ${({ theme }) => theme.colors.background};
-`
+`;
 
 const StyledContentWrapper = styled(ContentWrapper)`
   && {
@@ -31,7 +31,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
       }
     }
   }
-`
+`;
 
 const StyledLink = styled(Link)`
   font-size: 0.875rem;
@@ -39,7 +39,7 @@ const StyledLink = styled(Link)`
   text-transform: uppercase;
   color: #ffffff;
   letter-spacing: 1px;
-`
+`;
 
 const Footer = () => (
   <StyledFooter>
@@ -49,11 +49,13 @@ const Footer = () => (
       </Link>
       <div className="footer-links">
         {footerLinks.map(({ name, url }, key) => (
-          <StyledLink key={key} to={url}>{name}</StyledLink>
+          <StyledLink key={key} to={url}>
+            {name}
+          </StyledLink>
         ))}
       </div>
     </StyledContentWrapper>
   </StyledFooter>
-)
+);
 
-export default Footer
+export default Footer;

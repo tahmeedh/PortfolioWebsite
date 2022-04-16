@@ -1,11 +1,11 @@
-import React from "react"
-import PropTypes from "prop-types"
-import styled from "styled-components"
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
-import config from "../config/"
-import Icon from "./icons"
+import config from "../config/";
+import Icon from "./icons";
 
-const { socialMedia } = config
+const { socialMedia } = config;
 
 const StyledSocialWrapper = styled.div`
   display: grid;
@@ -62,7 +62,7 @@ const StyledSocialWrapper = styled.div`
       margin-right: 1rem;
     }
   }
-`
+`;
 
 const StyledSocialProfile = styled.a`
   width: ${({ width }) => (width ? width : "auto")};
@@ -96,7 +96,7 @@ const StyledSocialProfile = styled.a`
     margin-right: 0.5rem;
     margin-bottom: -0.05rem;
   }
-`
+`;
 
 const Social = ({ width, padding, fontSize, fontWeight, withIcon }) => (
   <StyledSocialWrapper itemCount={socialMedia.length}>
@@ -115,17 +115,17 @@ const Social = ({ width, padding, fontSize, fontWeight, withIcon }) => (
         >
           {withIcon ? <Icon name={name} /> : null} {name}
         </StyledSocialProfile>
-      )
+      );
     })}
   </StyledSocialWrapper>
-)
+);
 
 Social.propTypes = {
   width: PropTypes.string,
   padding: PropTypes.string,
   fontSize: PropTypes.string,
   fontWeight: PropTypes.string,
-  withIcon: PropTypes.bool,
-}
+  withIcon: PropTypes.bool
+};
 
-export default Social
+export default Social;

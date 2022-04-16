@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
+import PropTypes from "prop-types";
 
 const Medium = ({ color }) => {
   return (
@@ -18,15 +18,15 @@ const Medium = ({ color }) => {
 	c-0.1,0.4,0.1,0.8,0.3,1.1l2.5,3.1v0.4h-7.1v-0.4l2.5-3.1c0.3-0.3,0.4-0.7,0.3-1.1C-234.2,256.5-234.2,245.9-234.2,245.9z"
       />
     </svg>
-  )
-}
+  );
+};
 
 Medium.propTypes = {
-  color: PropTypes.string,
-}
+  color: PropTypes.string
+};
 
 Medium.defaultProps = {
-  color: "#ffffff",
-}
+  color: "#ffffff"
+};
 
-export default Medium
+export default Medium;

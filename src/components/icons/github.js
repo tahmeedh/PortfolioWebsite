@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
+import PropTypes from "prop-types";
 
 const Github = ({ color }) => {
   return (
@@ -22,15 +22,15 @@ const Github = ({ color }) => {
 	c202.2-67.8,348.8-259.8,348.8-485.8C1286-20.2,1056.9-249.4,774-249.4z"
       />
     </svg>
-  )
-}
+  );
+};
 
 Github.propTypes = {
-  color: PropTypes.string,
-}
+  color: PropTypes.string
+};
 
 Github.defaultProps = {
-  color: "#ffffff",
-}
+  color: "#ffffff"
+};
 
-export default Github
+export default Github;

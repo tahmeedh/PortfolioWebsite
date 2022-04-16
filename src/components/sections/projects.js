@@ -1,22 +1,22 @@
-import React, { useState, useRef } from "react"
-import PropTypes from "prop-types"
-import styled from "styled-components"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import Img from "gatsby-image"
-import VisibilitySensor from "react-visibility-sensor"
-import { motion } from "framer-motion"
+import React, { useState, useRef } from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import Img from "gatsby-image";
+import VisibilitySensor from "react-visibility-sensor";
+import { motion } from "framer-motion";
 
-import { useOnScreen } from "../../hooks"
-import ContentWrapper from "../../styles/ContentWrapper"
-import Underlining from "../../styles/Underlining"
-import Button from "../../styles/Button"
-import Icon from "../../components/icons"
+import { useOnScreen } from "../../hooks";
+import ContentWrapper from "../../styles/ContentWrapper";
+import Underlining from "../../styles/Underlining";
+import Button from "../../styles/Button";
+import Icon from "../../components/icons";
 
 const StyledSection = styled.section`
   width: 100%;
   height: auto;
   background: ${({ theme }) => theme.colors.background};
-  
+
   .cta-btn {
     display: block;
     text-align: center;
@@ -25,7 +25,7 @@ const StyledSection = styled.section`
       margin: 0 auto;
     }
   }
-`
+`;
 
 const StyledContentWrapper = styled(ContentWrapper)`
   && {
@@ -100,7 +100,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
       }
     }
   }
-`
+`;
 
 const StyledProject = styled(motion.div)`
   display: flex;
@@ -194,31 +194,31 @@ const StyledProject = styled(motion.div)`
       height: 18.75rem;
     }
   }
-`
+`;
 
 const Projects = ({ content }) => {
-  const sectionDetails = content[0].node
-  const projects = content.slice(1, content.length)
+  const sectionDetails = content[0].node;
+  const projects = content.slice(1, content.length);
 
   // visibleProject is needed to show which project is currently
   // being viewed in the horizontal slider on mobile and tablet
-  const [visibleProject, setVisibleProject] = useState(1)
+  const [visibleProject, setVisibleProject] = useState(1);
 
   // projects don't track the visibility by using the onScreen hook
   // instead they use react-visibility-sensor, therefore their visibility
   // is also stored differently
-  const [onScreen, setOnScreen] = useState({})
+  const [onScreen, setOnScreen] = useState({});
   const handleOnScreen = el => {
     if (!onScreen[el]) {
-      const updatedOnScreen = { ...onScreen }
-      updatedOnScreen[el] = true
-      setOnScreen(updatedOnScreen)
+      const updatedOnScreen = { ...onScreen };
+      updatedOnScreen[el] = true;
+      setOnScreen(updatedOnScreen);
     }
-  }
+  };
   const pVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  }
+    visible: { opacity: 1, y: 0 }
+  };
 
   // useEffect(() => {
   //   // mobile and tablet only: set first project as visible in the
@@ -234,20 +234,20 @@ const Projects = ({ content }) => {
   // }, [])
 
   // Required for animating the title
-  const tRef = useRef()
-  const tOnScreen = useOnScreen(tRef)
+  const tRef = useRef();
+  const tOnScreen = useOnScreen(tRef);
   const tVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  }
+    visible: { opacity: 1 }
+  };
 
   // Required for animating the button
-  const bRef = useRef()
-  const bOnScreen = useOnScreen(bRef)
+  const bRef = useRef();
+  const bOnScreen = useOnScreen(bRef);
   const bVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  }
+    visible: { opacity: 1 }
+  };
 
   return (
     <StyledSection id="projects">
@@ -264,7 +264,7 @@ const Projects = ({ content }) => {
         </motion.div>
         <div className="projects">
           {projects.map(project => {
-            const { body, frontmatter } = project.node
+            const { body, frontmatter } = project.node;
             return (
               <VisibilitySensor
                 key={frontmatter.position}
@@ -330,39 +330,39 @@ const Projects = ({ content }) => {
                   </VisibilitySensor>
                 </StyledProject>
               </VisibilitySensor>
-            )
+            );
           })}
         </div>
       </StyledContentWrapper>
       {sectionDetails.frontmatter.buttonVisible === "true" && (
         <motion.a
-        ref={bRef}
-        variants={bVariants}
-        animate={bOnScreen ? "visible" : "hidden"}
-        className="cta-btn"
-        href={sectionDetails.frontmatter.buttonUrl}
-        target="_blank"
-        rel="nofollow noopener noreferrer"
-        aria-label="External Link"
-      >
-        <Button type="button" textAlign="center" color="tertiary" center>
-          {sectionDetails.frontmatter.buttonText}
-        </Button>
-      </motion.a>
+          ref={bRef}
+          variants={bVariants}
+          animate={bOnScreen ? "visible" : "hidden"}
+          className="cta-btn"
+          href={sectionDetails.frontmatter.buttonUrl}
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+          aria-label="External Link"
+        >
+          <Button type="button" textAlign="center" color="tertiary" center>
+            {sectionDetails.frontmatter.buttonText}
+          </Button>
+        </motion.a>
       )}
     </StyledSection>
-  )
-}
+  );
+};
 
 Projects.propTypes = {
   content: PropTypes.arrayOf(
     PropTypes.shape({
       node: PropTypes.shape({
         body: PropTypes.string.isRequired,
-        frontmatter: PropTypes.object.isRequired,
-      }).isRequired,
+        frontmatter: PropTypes.object.isRequired
+      }).isRequired
     }).isRequired
-  ).isRequired,
-}
+  ).isRequired
+};
 
-export default Projects
+export default Projects;

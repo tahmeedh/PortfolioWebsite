@@ -1,20 +1,20 @@
-import React, { useRef } from "react"
-import PropTypes from "prop-types"
-import styled from "styled-components"
-import Img from "gatsby-image"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import { motion } from "framer-motion"
+import React, { useRef } from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import Img from "gatsby-image";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import { motion } from "framer-motion";
 
-import { useOnScreen } from "../../hooks/"
-import ContentWrapper from "../../styles/ContentWrapper"
+import { useOnScreen } from "../../hooks/";
+import ContentWrapper from "../../styles/ContentWrapper";
 
 const StyledSection = styled.section`
   width: 100%;
   height: auto;
   background: ${({ theme }) => theme.colors.background};
   margin-top: 1 rem;
-  padding: 1 rem; 
-`
+  padding: 1 rem;
+`;
 
 const StyledContentWrapper = styled(ContentWrapper)`
   && {
@@ -51,36 +51,33 @@ const StyledContentWrapper = styled(ContentWrapper)`
     }
     .about-author {
       border-radius: ${({ theme }) => theme.borderRadius};
-      box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.16);
-      filter: grayscale(20%) contrast(1) brightness(90%);
-      transition: all 0.3s ease-out;
-      &:hover {
+      box-shadow:hover {
         filter: grayscale(50%) contrast(1) brightness(90%);
         transform: translate3d(0px, -0.125rem, 0px);
         box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.32);
       }
     }
   }
-`
+`;
 
 const About = ({ content }) => {
-  const { frontmatter, body } = content[0].node
+  const { frontmatter, body } = content[0].node;
 
   // Required for animating the text content
-  const tRef = useRef()
-  const tOnScreen = useOnScreen(tRef)
+  const tRef = useRef();
+  const tOnScreen = useOnScreen(tRef);
   const tVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  }
+    visible: { opacity: 1, y: 0 }
+  };
 
   // Required for animating the image
-  const iRef = useRef()
-  const iOnScreen = useOnScreen(iRef)
+  const iRef = useRef();
+  const iOnScreen = useOnScreen(iRef);
   const iVariants = {
     hidden: { opacity: 0, x: 20 },
-    visible: { opacity: 1, x: 0 },
-  }
+    visible: { opacity: 1, x: 0 }
+  };
 
   return (
     <StyledSection id="about">
@@ -109,18 +106,18 @@ const About = ({ content }) => {
         </motion.div>
       </StyledContentWrapper>
     </StyledSection>
-  )
-}
+  );
+};
 
 About.propTypes = {
   content: PropTypes.arrayOf(
     PropTypes.shape({
       node: PropTypes.shape({
         body: PropTypes.string.isRequired,
-        frontmatter: PropTypes.object.isRequired,
-      }).isRequired,
+        frontmatter: PropTypes.object.isRequired
+      }).isRequired
     }).isRequired
-  ).isRequired,
-}
+  ).isRequired
+};
 
-export default About
+export default About;

@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useRef } from "react"
-import PropTypes from "prop-types"
-import styled from "styled-components"
-import Img from "gatsby-image"
-import { motion, useAnimation } from "framer-motion"
+import React, { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import Img from "gatsby-image";
+import { motion, useAnimation } from "framer-motion";
 
-import { detectMobileAndTablet, isSSR } from "../../utils"
-import { useOnScreen }  from "../../hooks/"
-import ContentWrapper from "../../styles/ContentWrapper"
-import Button from "../../styles/Button"
+import { detectMobileAndTablet, isSSR } from "../../utils";
+import { useOnScreen } from "../../hooks/";
+import ContentWrapper from "../../styles/ContentWrapper";
+import Button from "../../styles/Button";
 
 const StyledSection = styled.section`
   width: 100%;
@@ -16,8 +16,7 @@ const StyledSection = styled.section`
   margin-top: 1rem;
   margin-bottom: 1rem;
   padding: 5rem;
-
-`
+`;
 
 const StyledContentWrapper = styled(ContentWrapper)`
   && {
@@ -41,7 +40,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
       }
     }
   }
-`
+`;
 
 const StyledInterests = styled.div`
   display: grid;
@@ -109,28 +108,28 @@ const StyledInterests = styled.div`
       margin-right: 0.5rem;
     }
   }
-`
+`;
 
 const Interests = ({ content }) => {
-  const { exports, frontmatter } = content[0].node
-  const { shownItems, interests } = exports
+  const { exports, frontmatter } = content[0].node;
+  const { shownItems, interests } = exports;
 
-  const [shownInterests, setShownInterests] = useState(shownItems)
+  const [shownInterests, setShownInterests] = useState(shownItems);
 
-  const ref = useRef()
-  const onScreen = useOnScreen(ref)
+  const ref = useRef();
+  const onScreen = useOnScreen(ref);
 
-  const iControls = useAnimation()
-  const bControls = useAnimation()
+  const iControls = useAnimation();
+  const bControls = useAnimation();
 
   useEffect(() => {
     // If mobile or tablet, show all interests initially
     // Otherwise interests.mdx will determine how many interests are shown
     // (isSSR) is used to prevent error during gatsby build
     if (!isSSR && detectMobileAndTablet(window.innerWidth)) {
-      setShownInterests(interests.length)
+      setShownInterests(interests.length);
     }
-  }, [interests])
+  }, [interests]);
 
   useEffect(() => {
     const sequence = async () => {
@@ -138,15 +137,17 @@ const Interests = ({ content }) => {
         // i receives the value of the custom prop - can be used to stagger
         // the animation of each "interest" element
         await iControls.start(i => ({
-          opacity: 1, scaleY: 1, transition: { delay: i * 0.1 }
-        }))
-        await bControls.start({ opacity: 1, scaleY: 1 })
+          opacity: 1,
+          scaleY: 1,
+          transition: { delay: i * 0.1 }
+        }));
+        await bControls.start({ opacity: 1, scaleY: 1 });
       }
-    }
-    sequence()
-  }, [onScreen, shownInterests, iControls, bControls])
+    };
+    sequence();
+  }, [onScreen, shownInterests, iControls, bControls]);
 
-  const showMoreItems = () => setShownInterests(shownInterests + 4)
+  const showMoreItems = () => setShownInterests(shownInterests + 4);
 
   return (
     <StyledSection id="interests">
@@ -154,14 +155,14 @@ const Interests = ({ content }) => {
         <h3 className="section-title">{frontmatter.title}</h3>
         <StyledInterests itemCount={interests.length} ref={ref}>
           {interests.slice(0, shownInterests).map(({ name, icon }, key) => (
-            <motion.div 
-              className="interest" 
-              key={key} 
-              custom={key} 
+            <motion.div
+              className="interest"
+              key={key}
+              custom={key}
               initial={{ opacity: 0, scaleY: 0 }}
               animate={iControls}
             >
-                <Img className="icon" fixed={icon.childImageSharp.fixed} /> {name}
+              <Img className="icon" fixed={icon.childImageSharp.fixed} /> {name}
             </motion.div>
           ))}
           {shownInterests < interests.length && (
@@ -171,9 +172,6 @@ const Interests = ({ content }) => {
                 type="button"
                 textAlign="left"
                 color="s"
-            
-
-                
               >
                 + Load more
               </Button>
@@ -182,8 +180,8 @@ const Interests = ({ content }) => {
         </StyledInterests>
       </StyledContentWrapper>
     </StyledSection>
-  )
-}
+  );
+};
 
 Interests.propTypes = {
   content: PropTypes.arrayOf(
@@ -191,12 +189,12 @@ Interests.propTypes = {
       node: PropTypes.shape({
         exports: PropTypes.shape({
           interests: PropTypes.array.isRequired,
-          shownItems: PropTypes.number.isRequired,
+          shownItems: PropTypes.number.isRequired
         }).isRequired,
-        frontmatter: PropTypes.object.isRequired,
-      }).isRequired,
+        frontmatter: PropTypes.object.isRequired
+      }).isRequired
     }).isRequired
-  ).isRequired,
-}
+  ).isRequired
+};
 
-export default Interests
+export default Interests;

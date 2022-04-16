@@ -1,10 +1,10 @@
-import React from "react"
-import PropTypes from "prop-types"
-import styled from "styled-components"
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
-import config from "../config"
+import config from "../config";
 
-const { siteShortTitle } = config
+const { siteShortTitle } = config;
 
 const StyledLogo = styled.div`
   position: relative;
@@ -12,23 +12,23 @@ const StyledLogo = styled.div`
 
   font-size: ${({ size }) => (size ? size : "1.75rem")};
   font-weight: 900;
-  color: ${({ theme, color }) => theme.colors[color] || color };
+  color: ${({ theme, color }) => theme.colors[color] || color};
 
   /* Disable effects when sidebar is open */
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
-`
+`;
 
 const Logo = ({ size, color }) => (
   <StyledLogo color={color} size={size}>
     {siteShortTitle}
   </StyledLogo>
-)
+);
 
 Logo.propTypes = {
   size: PropTypes.string,
-  color: PropTypes.string,
-}
+  color: PropTypes.string
+};
 
-export default Logo
+export default Logo;

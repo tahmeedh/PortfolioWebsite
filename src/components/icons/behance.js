@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
+import PropTypes from "prop-types";
 
 const Behance = ({ color }) => {
   return (
@@ -51,15 +51,15 @@ const Behance = ({ color }) => {
       <g></g>
       <g></g>
     </svg>
-  )
-}
+  );
+};
 
 Behance.propTypes = {
-  color: PropTypes.string,
-}
+  color: PropTypes.string
+};
 
 Behance.defaultProps = {
-  color: "#000000",
-}
+  color: "#000000"
+};
 
-export default Behance
+export default Behance;
