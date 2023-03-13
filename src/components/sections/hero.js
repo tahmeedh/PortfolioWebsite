@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Img from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { motion, useAnimation } from "framer-motion";
-import Pdf from "./TahmeedHossainSE1.pdf";
+import Pdf from "./TahmeedHossainSE3.pdf";
 import { useOnScreen } from "../../hooks";
 import Button from "../../styles/Button";
 import Context from "../../context/";
